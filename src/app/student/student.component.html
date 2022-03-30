@@ -1,0 +1,56 @@
+<div class="container">
+  <h1 class="display-4">Student</h1>
+  <div class="row cnt">
+    <div class="col-md-6">
+      <form [formGroup]="formStudent">
+        <div class="mb-3">
+          <label class="form-label" for="name">Nombre</label>
+          <input class="form-control" type="text" id="name" formControlName="name">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="lastName">Apellido</label>
+          <input class="form-control" type="text" id="lastName" formControlName="lastName">
+        </div>
+
+        <div class="mb-3">
+          <select class="form-select" id="genre" formControlName="genre">
+            <option value="">Selecionar Genero</option>
+            <option value="Femenino">Femenino</option>
+            <option value="Masculino">Masculino</option>
+          </select>
+        </div>
+
+        <div class="mb-3" *ngIf="aulas.length" formArrayName="aula">
+          <div class="col-auto" *ngFor="let one of aulas.controls; let i = index;">
+            <label class="form-label">Aula {{i == 0 ? "" : i}}</label>
+            <input [formControlName]="i" class="form-control" type="text" />
+            <button type="button" (click) ="removeField(i)" class="btn btn-danger btn-sm">Cancelar</button>
+          </div>
+        </div>
+
+        <button class="btn btn-primary btn-sm"
+          (click)="generateField()">
+          Agregar aula
+        </button>
+
+        <div class="d-grid gap-2">
+          <button [disabled]="formStudent.invalid"
+            [ngClass]="formStudent.valid ? 'btn btn-success btn-lg' : 'btn btn-secondary btn-lg'" (click)="send()">
+            Enviar
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-4">
+      <h4 class="display-6">List student</h4>
+      <div class="p-3 mb-2 bg-info text-dark" *ngFor="let student of students">
+        <p>Nombre: {{student.name}} {{student.lastName}}</p>
+        <p>Genero: {{student.genre}}</p>
+        <p *ngIf="student.aula.length">
+          Aulas: <span class="badge bg-success" *ngFor="let aula of student.aula">{{aula}}</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

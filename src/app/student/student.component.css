@@ -1,0 +1,18 @@
+h1{
+  text-align: center;
+}
+
+.cnt {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  margin: 10px 0;
+}
+
+.badge {
+ margin: 0 5px;
+}
+
