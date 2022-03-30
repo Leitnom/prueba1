@@ -28,7 +28,7 @@ export class StudentComponent implements OnInit {
     const genre = control.value;
     let error = null;
     if (genre == "") {
-      error = { error: 'Genero no permitido' };
+      error = { error: 'Género no permitido' };
     }
     return error
   }

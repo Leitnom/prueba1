@@ -15,7 +15,7 @@
 
         <div class="mb-3">
           <select class="form-select" id="genre" formControlName="genre">
-            <option value="">Selecionar Genero</option>
+            <option value="">Selecionar Género</option>
             <option value="Femenino">Femenino</option>
             <option value="Masculino">Masculino</option>
           </select>
@@ -42,12 +42,12 @@
         </div>
       </form>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-6">
       <h4 class="display-6">List student</h4>
       <div class="p-3 mb-2 bg-info text-dark" *ngFor="let student of students">
-        <p>Nombre: {{student.name}} {{student.lastName}}</p>
-        <p>Genero: {{student.genre}}</p>
-        <p *ngIf="student.aula.length">
+        <p class="parrafo">Nombre: {{student.name}} {{student.lastName}}</p>
+        <p class="parrafo">Género: {{student.genre}}</p>
+        <p class="parrafo" *ngIf="student.aula.length">
           Aulas: <span class="badge bg-success" *ngFor="let aula of student.aula">{{aula}}</span>
         </p>
       </div>
